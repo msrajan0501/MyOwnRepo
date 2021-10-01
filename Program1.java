@@ -15,17 +15,17 @@ public class Program1 {
 
 		for (int i = num1; i <= num2; i++) {
 			// System.out.println(i);
-			if (i%3==0)
+			if ((i%3==0) && (i%5==0))
 			{
-			System.out.println("Fizz");
+			System.out.println("Fizz Buzz");
 			}
 			else if (i%5==0)
 			{
 			System.out.println("Buzz");
 			}
-			else if ((i%3==0) && (i%5==0))
+			else if (i%3==0)
 			{
-			System.out.println("Fizz Buzz");
+			System.out.println("Fizz");
 			}
 			else
 			{
