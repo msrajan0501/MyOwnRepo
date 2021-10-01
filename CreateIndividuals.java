@@ -36,7 +36,7 @@ public class CreateIndividuals {
 		// 5. Click on New Individual
 		driver.findElement(By.xpath("//div[text()='New']")).click();
 		// 6. Enter the Last Name as 'Kumar'
-		String Lastname = "Soundararajan";
+		String Lastname = "Bachchan";
 		driver.findElement(By.xpath("//input[contains(@class,'lastName')]")).sendKeys(Lastname);
 		// 7.Click save and verify Individuals Name
 		driver.findElement(By.xpath("//button[@title='Save']")).click();
