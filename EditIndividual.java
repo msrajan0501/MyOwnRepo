@@ -43,7 +43,8 @@ public class EditIndividual {
 		// 5. Search the Individuals 'Kumar'
 		WebDriverWait wait = new WebDriverWait(driver,30);
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@class='slds-input' and @name='Individual-search-input']")));
-		driver.findElement(By.xpath("//input[@class='slds-input' and @name='Individual-search-input']")).sendKeys("Soundararajan" + "\n");
+		String ln = "Bachchan";
+		driver.findElement(By.xpath("//input[@class='slds-input' and @name='Individual-search-input']")).sendKeys(ln + "\n");
 		//driver.findElement(By.xpath("//label[text()='Search this list...']/following::input")).sendKeys("Soundararajan" + "\n");
 		
 		// 6. Click on the Dropdown icon and Select Edit
@@ -56,13 +57,14 @@ public class EditIndividual {
 		driver.findElement(By.xpath("//a[@title='Mr.']")).click();
 		
 		// 8.Enter the first name as 'Ganesh'.
-		driver.findElement(By.xpath("//input[contains(@class,'firstName')]")).sendKeys("Mahalakshmi");
+		String fn ="Amitabh";
+		driver.findElement(By.xpath("//input[contains(@class,'firstName')]")).sendKeys(fn);
 		
 		// 9. Click on Save and Verify the first name as 'Ganesh'
 		driver.findElement(By.xpath("//button[@title='Save']")).click();
 		String Editedname = driver
 				.findElement(By.xpath("//span[contains(@class,'toastMessage slds-text-heading--small')]")).getText();
-		if (Editedname.contains("Mahalakshmi Soundararajan")) {
+		if (Editedname.contains(fn+ln)) {
 			System.out.println("Individual edited successfully");
 		}
 		driver.quit();
