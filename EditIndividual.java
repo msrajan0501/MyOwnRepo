@@ -1,4 +1,5 @@
-import java.util.concurrent.TimeUnit;
+package normalExecn;
+import java.time.Duration;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -9,6 +10,8 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class EditIndividual {
 
 	public static void main(String[] args) throws InterruptedException {
@@ -17,11 +20,11 @@ public class EditIndividual {
 		
 		ChromeOptions ops = new ChromeOptions();
 		ops.addArguments("--disable-notifications");
-		System.setProperty("webdriver.chrome.driver", "D:\\TestLeaf\\Drivers\\chromedriver.exe");
+		WebDriverManager.chromedriver().setup();
 		WebDriver driver = new ChromeDriver(ops);
 		driver.get("https://login.salesforce.com/");
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 		driver.findElement(By.id("username")).sendKeys("fullstack@testleaf.com");
 		driver.findElement(By.id("password")).sendKeys("SelBootcamp$123");
 		driver.findElement(By.id("Login")).click();
